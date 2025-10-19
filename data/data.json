@@ -1,0 +1,377 @@
+{
+  "newsTicker": {
+    "enabled": true,
+    "text": "🎉 Welcome to Proview Cadence | HAPPY DIWALI to all | Contact Us for Free Consultation | Special Offers on ML & AI Projects | 24/7 Support Available"
+  },
+  "logo": {
+    "type": "image",
+    "text": "ProView Cadence",
+    "image": "images/proview-cadence-logo.png"
+  },
+  "hero": {
+    "slides": [
+      {
+        "id": 1,
+        "tag": "Best Choice",
+        "title": "Transform Your Ideas Into Reality",
+        "description": "Expert AI, ML, and Full Stack Development Services",
+        "buttonText": "Get Started",
+        "buttonLink": "#contact",
+        "backgroundImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop"
+      },
+      {
+        "id": 2,
+        "tag": "Innovation First",
+        "title": "Cutting-Edge Technical Solutions",
+        "description": "From ML Models to Full Stack Applications",
+        "buttonText": "Explore Services",
+        "buttonLink": "#services",
+        "backgroundImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1080&fit=crop"
+      },
+      {
+        "id": 3,
+        "tag": "Quality Guaranteed",
+        "title": "Your Success is Our Mission",
+        "description": "Professional Technical Services You Can Trust",
+        "buttonText": "View Projects",
+        "buttonLink": "#projects",
+        "backgroundImage": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&h=1080&fit=crop"
+      }
+    ]
+  },
+  "services": [
+    {
+      "id": 1,
+      "icon": "🤖",
+      "title": "Machine Learning & AI",
+      "description": "Custom ML models, LLMs, and AI solutions tailored to your business needs",
+      "details": [
+        "Custom ML Model Development",
+        "Large Language Models (LLMs)",
+        "AI Model Training & Deployment",
+        "Predictive Analytics",
+        "Computer Vision Solutions",
+        "Natural Language Processing"
+      ]
+    },
+    {
+      "id": 2,
+      "icon": "💻",
+      "title": "Full Stack Development",
+      "description": "End-to-end web and mobile application development with modern technologies",
+      "details": [
+        "MERN Stack Development",
+        "Full Stack Web Applications",
+        "RESTful API Development",
+        "Database Design & Optimization",
+        "Cloud Deployment & DevOps",
+        "Progressive Web Apps (PWA)"
+      ]
+    },
+    {
+      "id": 3,
+      "icon": "🎨",
+      "title": "UI/UX Design",
+      "description": "Beautiful, intuitive, and user-centric design solutions",
+      "details": [
+        "User Interface Design",
+        "User Experience Research",
+        "Wireframing & Prototyping",
+        "Responsive Design",
+        "Design Systems",
+        "Figma/Adobe XD Design"
+      ]
+    },
+    {
+      "id": 4,
+      "icon": "📊",
+      "title": "Data Services",
+      "description": "Comprehensive data management and analysis solutions",
+      "details": [
+        "Data Analysis & Visualization",
+        "Data Entry & Management",
+        "Data Cleaning & Preprocessing",
+        "Data Framing & Manipulation",
+        "ETL Pipeline Development",
+        "Business Intelligence Reports"
+      ]
+    },
+    {
+      "id": 5,
+      "icon": "⚙️",
+      "title": "Automation Scripts",
+      "description": "Intelligent automation solutions to streamline your workflows",
+      "details": [
+        "Process Automation",
+        "Web Scraping & Automation",
+        "Task Scheduling Scripts",
+        "Custom Automation Tools",
+        "RPA Solutions",
+        "API Integration Scripts"
+      ]
+    },
+    {
+      "id": 6,
+      "icon": "📝",
+      "title": "Technical Documentation",
+      "description": "Professional technical reports, articles, and presentations",
+      "details": [
+        "Technical Report Writing",
+        "Scientific Reports & Papers",
+        "Research Articles",
+        "Debate Content Writing",
+        "Presentation Design (PPT)",
+        "Documentation & Manuals"
+      ]
+    },
+    {
+      "id": 7,
+      "icon": "🆕",
+      "title": "",
+      "description": "",
+      "details": []
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Platform",
+      "category": "Full Stack Development",
+      "description": "Complete MERN stack e-commerce solution with payment integration",
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express"
+      ],
+      "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
+      "featured": true,
+      "githubLink": "https://github.com/example/ecommerce-platform",
+      "liveLink": "https://ecommerce-demo.example.com"
+    },
+    {
+      "id": 2,
+      "title": "Sentiment Analysis AI",
+      "category": "Machine Learning",
+      "description": "Advanced NLP model for real-time sentiment analysis",
+      "technologies": [
+        "Python",
+        "TensorFlow",
+        "BERT",
+        "FastAPI"
+      ],
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "featured": true,
+      "githubLink": "https://github.com/example/sentiment-ai",
+      "liveLink": ""
+    },
+    {
+      "id": 3,
+      "title": "Healthcare Dashboard",
+      "category": "UI/UX Design",
+      "description": "Modern healthcare management dashboard with intuitive interface",
+      "technologies": [
+        "Figma",
+        "React",
+        "Material-UI"
+      ],
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
+      "featured": true,
+      "githubLink": "https://github.com/example/healthcare-dashboard",
+      "liveLink": "https://healthcare-demo.example.com"
+    },
+    {
+      "id": 4,
+      "title": "Predictive Analytics Tool",
+      "category": "Data Services",
+      "description": "Data analysis platform for business intelligence and forecasting",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Plotly",
+        "Scikit-learn"
+      ],
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "featured": false,
+      "githubLink": "",
+      "liveLink": ""
+    },
+    {
+      "id": 5,
+      "title": "Process Automation Suite",
+      "category": "Automation",
+      "description": "Custom automation scripts for enterprise workflow optimization",
+      "technologies": [
+        "Python",
+        "Selenium",
+        "Pandas",
+        "API Integration"
+      ],
+      "image": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop",
+      "featured": false,
+      "githubLink": "https://github.com/example/automation-suite",
+      "liveLink": ""
+    },
+    {
+      "id": 6,
+      "title": "Mobile Banking App",
+      "category": "Full Stack Development",
+      "description": "Secure and feature-rich mobile banking application",
+      "technologies": [
+        "React Native",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+      "featured": false,
+      "githubLink": "",
+      "liveLink": ""
+    },
+    {
+      "id": 7,
+      "title": "",
+      "category": "Full Stack Development",
+      "description": "",
+      "technologies": [],
+      "image": "",
+      "featured": false,
+      "githubLink": "",
+      "liveLink": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Rajesh Kumar",
+      "position": "CEO, TechStart India",
+      "avatar": "👨‍💼",
+      "rating": 5,
+      "text": "ProView Cadence delivered an exceptional ML model that increased our prediction accuracy by 40%. Their expertise in AI is unmatched!"
+    },
+    {
+      "id": 2,
+      "name": "Priya Sharma",
+      "position": "Product Manager, InnovateCorp",
+      "avatar": "👩‍💼",
+      "rating": 5,
+      "text": "The MERN stack application they built is fast, scalable, and exactly what we needed. Highly professional team!"
+    },
+    {
+      "id": 3,
+      "name": "Amit Patel",
+      "position": "Director, DataFlow Solutions",
+      "avatar": "👨‍💻",
+      "rating": 5,
+      "text": "Their data analysis services helped us uncover insights we never knew existed. Outstanding work and timely delivery!"
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "AI Conference 2024",
+      "description": "Our team presenting at the National AI Conference",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+      "category": "Events"
+    },
+    {
+      "id": 2,
+      "title": "Project Launch",
+      "description": "Successful launch of our E-Commerce platform",
+      "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
+      "category": "Projects"
+    },
+    {
+      "id": 3,
+      "title": "Team Building",
+      "description": "Annual team building event 2024",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+      "category": "Team"
+    },
+    {
+      "id": 4,
+      "title": "Workshop",
+      "description": "Machine Learning workshop for students",
+      "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+      "category": "Events"
+    },
+    {
+      "id": 5,
+      "title": "Office Space",
+      "description": "Our modern workspace",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
+      "category": "Office"
+    },
+    {
+      "id": 6,
+      "title": "Client Meeting",
+      "description": "Strategic planning session with clients",
+      "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop",
+      "category": "Meetings"
+    },
+    {
+      "id": 7,
+      "title": "",
+      "description": "",
+      "image": "",
+      "category": "General"
+    }
+  ],
+  "stats": [
+    {
+      "number": "150+",
+      "label": "Projects Completed"
+    },
+    {
+      "number": "98%",
+      "label": "Client Satisfaction"
+    },
+    {
+      "number": "50+",
+      "label": "Happy Clients"
+    },
+    {
+      "number": "24/7",
+      "label": "Support Available"
+    }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "question": "What services does ProView Cadence offer?",
+      "answer": "We offer comprehensive technical services including ML/AI development, full-stack web development, UI/UX design, data services, automation scripts, and technical documentation."
+    },
+    {
+      "id": 2,
+      "question": "How long does it take to complete a project?",
+      "answer": "Project timelines vary based on scope and complexity. Simple projects can be completed in 1-2 weeks, while complex ML models or full-stack applications may take 4-12 weeks. We provide detailed timelines during consultation."
+    },
+    {
+      "id": 3,
+      "question": "Do you provide post-deployment support?",
+      "answer": "Yes! We offer comprehensive post-deployment support including bug fixes, updates, maintenance, and feature enhancements. We have flexible support packages to meet your needs."
+    },
+    {
+      "id": 4,
+      "question": "What technologies do you work with?",
+      "answer": "We work with modern technologies including Python, TensorFlow, PyTorch, React, Node.js, MongoDB, Express, PostgreSQL, AWS, Docker, and many more. We choose the best tech stack for your specific needs."
+    },
+    {
+      "id": 5,
+      "question": "Can you handle both small and large projects?",
+      "answer": "Absolutely! We cater to projects of all sizes - from simple automation scripts to complex enterprise-level applications. Our flexible approach ensures quality regardless of project scale."
+    }
+  ],
+  "contact": {
+    "email": "contact@proviewcadence.com",
+    "phone": "+91 98765 43210",
+    "address": "Kolkata, West Bengal, India",
+    "whatsapp": "918240073235",
+    "social": {
+      "linkedin": "https://www.linkedin.com/company/proview-cadence",
+      "github": "https://github.com/proview-cadence",
+      "twitter": "https://twitter.com/proviewcadence",
+      "facebook": "https://www.facebook.com/proviewcadence",
+      "instagram": "https://www.instagram.com/proviewcadence"
+    }
+  }
+}

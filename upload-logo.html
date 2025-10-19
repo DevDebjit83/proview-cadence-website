@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Logo - ProView Cadence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 3px dashed #C91550;
+            border-radius: 15px;
+            padding: 60px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .upload-area:hover {
+            background: #fff;
+            border-color: #E01B5D;
+            transform: scale(1.02);
+        }
+        
+        .upload-area.dragging {
+            background: #C91550;
+            border-color: #A0103F;
+            color: white;
+        }
+        
+        .upload-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .upload-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .upload-hint {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .preview-area {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .preview-area.show {
+            display: block;
+        }
+        
+        .preview-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: #C91550;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #A0103F;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .success-message {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        
+        .info-box h3 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Upload ProView Cadence Logo</h1>
+        <p class="subtitle">Drag & drop your logo or click to browse</p>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📤</div>
+            <div class="upload-text">Drop your logo here</div>
+            <div class="upload-hint">or click to select file</div>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+        
+        <div class="preview-area" id="previewArea">
+            <h3>Preview:</h3>
+            <div class="preview-container">
+                <img id="previewImage" class="preview-image" src="" alt="Logo Preview">
+                <div>
+                    <p id="fileName"></p>
+                    <p id="fileSize"></p>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn-primary" onclick="saveLogo()">💾 Save as Logo</button>
+                <button class="btn-secondary" onclick="reset()">🔄 Choose Different File</button>
+            </div>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            ✅ Logo saved successfully! Go to <a href="index.html" style="color: white; text-decoration: underline;">your website</a> to see it.
+        </div>
+        
+        <div class="info-box">
+            <h3>📋 Instructions</h3>
+            <p>
+                <strong>1.</strong> Upload your ProView Cadence logo (PNG recommended)<br>
+                <strong>2.</strong> Preview it to make sure it looks good<br>
+                <strong>3.</strong> Click "Save as Logo" to set it<br>
+                <strong>4.</strong> The logo will be saved to <code>images/proview-cadence-logo.png</code><br>
+                <strong>5.</strong> Refresh your website to see the new logo!
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewArea = document.getElementById('previewArea');
+        const previewImage = document.getElementById('previewImage');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const successMessage = document.getElementById('successMessage');
+        
+        let selectedFile = null;
+        
+        // Click to upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        // File selected
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+        
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragging');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragging');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragging');
+            handleFile(e.dataTransfer.files[0]);
+        });
+        
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                alert('Please select an image file!');
+                return;
+            }
+            
+            selectedFile = file;
+            
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                fileName.textContent = `File: ${file.name}`;
+                fileSize.textContent = `Size: ${(file.size / 1024).toFixed(2)} KB`;
+                previewArea.classList.add('show');
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function saveLogo() {
+            if (!selectedFile) {
+                alert('No file selected!');
+                return;
+            }
+            
+            // Create a download link
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const link = document.createElement('a');
+                link.href = e.target.result;
+                link.download = 'proview-cadence-logo.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Show success message
+                successMessage.classList.add('show');
+                
+                // Instructions
+                setTimeout(() => {
+                    alert('Logo downloaded!\n\nNext steps:\n1. Move the downloaded file to:\n   /home/debjitdebbarman/Desktop/NICT Computer Services/images/\n2. Rename it to: proview-cadence-logo.png\n3. Refresh your website!');
+                }, 500);
+            };
+            reader.readAsDataURL(selectedFile);
+        }
+        
+        function reset() {
+            selectedFile = null;
+            fileInput.value = '';
+            previewArea.classList.remove('show');
+            successMessage.classList.remove('show');
+        }
+    </script>
+</body>
+</html>

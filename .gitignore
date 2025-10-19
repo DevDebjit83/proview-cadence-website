@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+*.log
+.env
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+data/data-backup-*.json
+.vercel

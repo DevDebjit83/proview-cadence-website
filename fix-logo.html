@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Logo - ProView Cadence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #C91550 0%, #667eea 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #C91550;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .problem {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .problem h2 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .problem p {
+            color: #856404;
+        }
+        
+        .solution {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .solution h2 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+            color: #155724;
+        }
+        
+        .steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #28a745;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .upload-area {
+            border: 3px dashed #C91550;
+            border-radius: 15px;
+            padding: 60px 20px;
+            text-align: center;
+            cursor: pointer;
+            background: #f8f9fa;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            background: #fff;
+            border-color: #E01B5D;
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .upload-text {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .upload-hint {
+            color: #999;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .preview-container {
+            display: none;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .preview-container.show {
+            display: block;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #C91550;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #A0103F;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #666;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .instructions code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .terminal {
+            background: #1e1e1e;
+            color: #0f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        
+        .terminal pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 Fix ProView Cadence Logo</h1>
+            <p>Your logo needs to be properly uploaded</p>
+        </div>
+        
+        <div class="problem">
+            <h2>⚠️ Current Problem</h2>
+            <p>The logo file exists but contains <strong>placeholder text</strong> instead of the actual <strong>image data</strong>. That's why you see a broken image icon.</p>
+        </div>
+        
+        <div class="solution">
+            <h2>✅ Quick Fix - Upload Your Logo Here</h2>
+            <p>Drag your ProView Cadence logo image here, and I'll help you save it!</p>
+        </div>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📸</div>
+            <div class="upload-text">Drop Your ProView Cadence Logo Here</div>
+            <div class="upload-hint">or click to browse files</div>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+        
+        <div class="preview-container" id="previewContainer">
+            <h3 style="text-align: center; color: #333;">Preview:</h3>
+            <img id="previewImage" class="preview-image" src="" alt="Logo Preview">
+            <p id="fileName" style="text-align: center; color: #666; margin: 10px 0;"></p>
+            <p id="fileSize" style="text-align: center; color: #999;"></p>
+            
+            <div class="button-group">
+                <button class="btn-success" onclick="downloadLogo()">
+                    💾 Download Logo File
+                </button>
+                <button class="btn-secondary" onclick="reset()">
+                    🔄 Choose Different Image
+                </button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 After Downloading:</h3>
+            <ol>
+                <li>Click the <strong>"Download Logo File"</strong> button above</li>
+                <li>The file will download as <code>proview-cadence-logo.png</code></li>
+                <li>Move it to: <code>/home/debjitdebbarman/Desktop/NICT Computer Services/images/</code></li>
+                <li><strong>Replace</strong> the existing file when asked</li>
+                <li>Go back to your website and <strong>refresh</strong> (Ctrl + Shift + R)</li>
+                <li>Your logo should now display perfectly! 🎉</li>
+            </ol>
+        </div>
+        
+        <div class="terminal">
+            <pre><strong>Terminal Commands (Alternative Method):</strong>
+
+# Navigate to images folder
+cd "/home/debjitdebbarman/Desktop/NICT Computer Services/images/"
+
+# Remove the placeholder file
+rm proview-cadence-logo.png
+
+# Now move your downloaded logo here
+mv ~/Downloads/proview-cadence-logo.png ./
+
+# Verify it's a real image
+file proview-cadence-logo.png
+
+# Should output: PNG image data, [width] x [height]</pre>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" style="color: #C91550; text-decoration: none; font-size: 18px; font-weight: 600;">
+                ← Back to Website
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewImage = document.getElementById('previewImage');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        
+        let selectedFile = null;
+        let imageDataURL = null;
+        
+        // Click to upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        // File selected
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+        
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.background = '#fff';
+            uploadArea.style.borderColor = '#E01B5D';
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.background = '#f8f9fa';
+            uploadArea.style.borderColor = '#C91550';
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.background = '#f8f9fa';
+            uploadArea.style.borderColor = '#C91550';
+            handleFile(e.dataTransfer.files[0]);
+        });
+        
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                alert('❌ Please select an image file (PNG, JPG, etc.)');
+                return;
+            }
+            
+            selectedFile = file;
+            
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imageDataURL = e.target.result;
+                previewImage.src = imageDataURL;
+                fileName.textContent = `📄 File: ${file.name}`;
+                fileSize.textContent = `📊 Size: ${(file.size / 1024).toFixed(2)} KB`;
+                previewContainer.classList.add('show');
+                
+                // Scroll to preview
+                previewContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function downloadLogo() {
+            if (!imageDataURL) {
+                alert('❌ No image selected!');
+                return;
+            }
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.href = imageDataURL;
+            link.download = 'proview-cadence-logo.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show success message
+            alert('✅ Logo downloaded!\n\n📂 Next steps:\n\n1. Check your Downloads folder\n2. Move file to:\n   /home/debjitdebbarman/Desktop/NICT Computer Services/images/\n3. Replace the existing file\n4. Refresh your website (Ctrl + Shift + R)\n\n🎉 Your logo will appear!');
+        }
+        
+        function reset() {
+            selectedFile = null;
+            imageDataURL = null;
+            fileInput.value = '';
+            previewContainer.classList.remove('show');
+        }
+    </script>
+</body>
+</html>

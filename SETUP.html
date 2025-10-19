@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Instructions - ProView Cadence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #004e89, #ff6b35);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #004e89;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+        h2 {
+            color: #ff6b35;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff6b35, #004e89);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        ol, ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ProView Cadence</h1>
+        <p style="font-size: 18px; color: #ff6b35; margin-bottom: 30px;">Professional Freelancing Services Website</p>
+        
+        <div class="success">
+            <strong>✅ Setup Complete!</strong><br>
+            Your website is ready to use. Follow the instructions below to get started.
+        </div>
+
+        <h2>📋 Quick Start</h2>
+        <p>Choose one of the following methods to view your website:</p>
+
+        <div class="button-group">
+            <a href="index.html" class="btn">🏠 View Main Website</a>
+            <a href="admin.html" class="btn btn-secondary">🔐 Access Admin Panel</a>
+        </div>
+
+        <h2>🌐 Method 1: Direct File Access</h2>
+        <ol>
+            <li>Click the "View Main Website" button above</li>
+            <li>Or open <code>index.html</code> directly in your browser</li>
+        </ol>
+
+        <h2>🖥️ Method 2: Using a Local Server (Recommended)</h2>
+        <p>For the best experience, use a local web server:</p>
+
+        <h3>Using Live Server (NPM)</h3>
+        <div class="code-block">
+npx live-server --port=8080
+        </div>
+
+        <h3>Using Python</h3>
+        <div class="code-block">
+# Python 3<br>
+python -m http.server 8080<br>
+<br>
+# Python 2<br>
+python -m SimpleHTTPServer 8080
+        </div>
+
+        <p>Then navigate to: <strong>http://localhost:8080</strong></p>
+
+        <h2>🔐 Admin Panel Access</h2>
+        <div class="warning">
+            <strong>⚠️ Default Credentials:</strong><br>
+            Username: <code>admin</code><br>
+            Password: <code>admin123</code><br>
+            <br>
+            <em>Change these in js/admin.js before deploying!</em>
+        </div>
+
+        <h2>✨ Features</h2>
+        <ul>
+            <li>Modern, responsive design</li>
+            <li>Dynamic content loading from JSON</li>
+            <li>Service showcase with expandable details</li>
+            <li>Project portfolio with filtering</li>
+            <li>Client testimonials slider</li>
+            <li>Interactive FAQ section</li>
+            <li>Contact form</li>
+            <li>Full admin panel for content management</li>
+        </ul>
+
+        <h2>📝 Managing Content</h2>
+        <ol>
+            <li>Access the admin panel at <code>admin.html</code></li>
+            <li>Login with the credentials above</li>
+            <li>Edit services, projects, testimonials, etc.</li>
+            <li>Click "Save All Changes" to download updated data.json</li>
+            <li>Replace the existing data.json file in the data/ folder</li>
+        </ol>
+
+        <h2>📖 Documentation</h2>
+        <p>For detailed documentation, please refer to <strong>README.md</strong></p>
+
+        <h2>🎨 Customization</h2>
+        <p>Colors and styles can be customized in <code>css/styles.css</code> by modifying the CSS variables.</p>
+
+        <div class="success">
+            <strong>Need Help?</strong><br>
+            Check the README.md file for comprehensive documentation and troubleshooting tips.
+        </div>
+
+        <div class="button-group" style="margin-top: 40px;">
+            <a href="index.html" class="btn">🚀 Launch Website</a>
+            <a href="admin.html" class="btn btn-secondary">⚙️ Open Admin Panel</a>
+        </div>
+    </div>
+</body>
+</html>
