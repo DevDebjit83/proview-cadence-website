@@ -833,9 +833,15 @@ function removeDetail(index) {
 // Save All Changes
 // =====================================================
 async function saveAllChanges() {
+    // Show saving indicator
+    const saveBtn = document.getElementById('saveChanges');
+    const originalText = saveBtn.innerHTML;
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+    saveBtn.disabled = true;
+    
     try {
-        // Try to save via API first (dynamic mode)
-        const response = await fetch('/api/data', {
+        // Try to save via API (pushes to GitHub)
+        const response = await fetch('/api/save-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -843,32 +849,42 @@ async function saveAllChanges() {
             body: JSON.stringify(siteData)
         });
         
-        if (response.ok) {
-            const result = await response.json();
+        const result = await response.json();
+        
+        if (result.success) {
             alert('✅ Changes saved successfully!\n\n' + 
-                  'Your website has been updated in real-time!\n' + 
-                  'Refresh the main page to see the changes.\n\n' +
-                  'A backup was automatically created: ' + result.timestamp);
-            console.log('✅ Data saved via API (Dynamic Mode)');
-            return;
+                  result.message + '\n\n' +
+                  'Your website will update automatically in 30 seconds.\n' +
+                  'Vercel is rebuilding your site now...');
+            console.log('✅ Data saved via GitHub API');
+        } else {
+            // Show instructions if not configured
+            alert('⚠️ Configuration Required!\n\n' + 
+                  result.message + '\n\n' +
+                  'Please follow the setup guide to enable dynamic updates.');
         }
-    } catch (apiError) {
-        console.log('⚠️ API not available, falling back to download mode...');
+    } catch (error) {
+        console.error('Error saving:', error);
+        
+        // Fallback: Download file (manual mode)
+        const dataStr = JSON.stringify(siteData, null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        
+        alert('⚠️ Manual Mode: Changes downloaded!\n\n' +
+              'Replace data/data.json with the downloaded file\n' +
+              'and push to GitHub to update your website.\n\n' +
+              'To enable automatic updates, see the setup guide.');
+    } finally {
+        // Restore button
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
     }
-    
-    // Fallback: Download file (static mode)
-    const dataStr = JSON.stringify(siteData, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'data.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    alert('⚠️ Static Mode: Changes downloaded!\n\n' +
-          'Download the new data.json file and replace the existing one in your data folder.\n\n' +
-          'Tip: Start the Node.js server (npm start) for automatic updates!');
 }
 
 // =====================================================

@@ -3,6 +3,10 @@
     {
       "source": "/api/data",
       "destination": "/api/data.py"
+    },
+    {
+      "source": "/api/save-data",
+      "destination": "/api/save-data.py"
     }
   ]
 }
