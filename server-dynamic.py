@@ -13,7 +13,8 @@ from datetime import datetime
 import shutil
 import mimetypes
 
-PORT = 8080
+# Use Railway's PORT env variable, fallback to 8080 for local
+PORT = int(os.environ.get('PORT', 8080))
 DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'data.json')
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 
@@ -168,9 +169,9 @@ def main():
         print('═══════════════════════════════════════════════════')
         print('🚀 ProView Cadence Dynamic Server Running!')
         print('═══════════════════════════════════════════════════')
-        print(f'📍 Main Website:    http://localhost:{PORT}')
-        print(f'⚙️  Admin Panel:     http://localhost:{PORT}/admin.html')
-        print(f'📡 API Endpoint:    http://localhost:{PORT}/api/data')
+        print(f'📍 Main Website:    http://0.0.0.0:{PORT}')
+        print(f'⚙️  Admin Panel:     http://0.0.0.0:{PORT}/admin.html')
+        print(f'📡 API Endpoint:    http://0.0.0.0:{PORT}/api/data')
         print('═══════════════════════════════════════════════════')
         print('✨ Changes in Admin Panel update INSTANTLY!')
         print('💾 Automatic backups created on every save')
