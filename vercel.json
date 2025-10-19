@@ -7,6 +7,10 @@
     {
       "source": "/api/save-data",
       "destination": "/api/save-data.py"
+    },
+    {
+      "source": "/api/check-config",
+      "destination": "/api/check-config.py"
     }
   ]
 }
